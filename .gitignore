@@ -6,6 +6,9 @@ saver
 styles
 pngs
 preds
+models
+my-content
+my-result
 
 *.sw*
 data
