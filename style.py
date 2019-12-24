@@ -1,14 +1,15 @@
 from __future__ import print_function
-import sys
-sys.path.insert(0, 'src')
+import os
 import scipy.misc
 import numpy as np
 import evaluate
 from utils import save_img, get_img, exists, list_files
 from argparse import ArgumentParser
 from optimize import optimize
-import os
 import pdb
+import sys
+sys.path.insert(0, 'src')
+
 
 CONTENT_WEIGHT = 7.5e0
 STYLE_WEIGHT = 1e2
@@ -93,6 +94,7 @@ def build_parser():
 
 
 def check_opts(opts):
+    print('check_optssssss', opts)
     exists(opts.checkpoint_dir, "checkpoint dir not found!")
     exists(opts.style, "style path not found!")
     if not opts.slow:
@@ -126,6 +128,7 @@ def main():
         content_targets = _get_files(options.train_path)
     elif options.test:
         content_targets = [options.test]
+    print('content_targetssssss', len(content_targets))
 
     kwargs = {
         "slow": options.slow,
